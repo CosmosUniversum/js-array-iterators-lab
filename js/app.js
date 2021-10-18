@@ -99,12 +99,14 @@ const devs = [
 
 // Array.prototype.some()
 // 8. Check if at least one person is 19 or older.
+let checkSomeAge = devs.some(dev => dev.year <= 2002)
 
-
-
+console.log(checkSomeAge)
 // Array.prototype.every()
 // 9. Check if everyone is 19 or older.
+let checkEveryAge = devs.every(dev => dev.year <= 2002)
 
+console.log(checkEveryAge)
 
 
 const comments = [
@@ -117,9 +119,11 @@ const comments = [
 
 // Array.prototype.find()
 // 10. Find the comment with the id of 823423.
+lookFor = comments.find(comment => comment.id === 823423)
 
-
-
+console.log(lookFor)
 // Array.prototype.findIndex()
 // 11. Find the index of the comment with an id of 123523.
+lookForIndex = comments.findIndex(comment => comment.id === 123523)
 
+console.log(lookForIndex)
