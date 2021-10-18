@@ -16,27 +16,38 @@ const inventors = [
 
 // Array.prototype.filter()
 // 1. Filter the array of inventors into a new array containing only the inventors born in the 1500's.
-
+let oldInventors = inventors.filter(born => {
+  return born.year < 1600
+})
+console.log(oldInventors)
 
 
 // Array.prototype.map()
 // 2. Map the array of the inventors into a new array containing objects with just the first and last names as properties.
-
-
+let inventorNames = inventors.map(inventor => {
+  let firstLast = {first: inventor.first, last: inventor.last}
+  return firstLast
+})
+console.log(inventorNames)
 
 // Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest.
-
+let ageOrder = inventors.sort((a, b) => a.year - b.year)
+console.log(ageOrder)
 
 
 // 4. Sort the inventors by years lived from shortest to longest-lived.
-
-
-
+let sortedAge = inventors.map(inventor => {
+  let inventorsWithAge = {first: inventor.first, last: inventor.last, age: inventor.passed - inventor.year}
+  return inventorsWithAge
+  }).sort((a,b) => a.age - b.age)
+console.log(sortedAge)
 // Array.prototype.reduce()
 // 5. Find how many years all the inventors lived combined.
-
-
+let totalYears = sortedAge.reduce(function(a,b) {
+  return a + b.age
+}, 0)
+console.log(totalYears)
 
 const people = [
   'Becker, Carl', 'Beckett, Samuel', 'Beddoes, Mick', 'Beecher, Henry',
@@ -55,7 +66,10 @@ const people = [
 // Array.prototype.map()
 // 6. Map the people array such that the new array consists of strings with the names formatted as "First Last", e.g., "Becker, Carl" should be mapped to "Carl Becker".
 
-
+let firstLast = people.map(person => {
+  return person.split(',').reverse('').join(' ')
+})
+console.log(firstLast)
 
 const data = [
   'car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van',
