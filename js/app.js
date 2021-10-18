@@ -79,8 +79,16 @@ const data = [
 // Array.prototype.reduce()
 // 7. Count the number of instances for each of the data items.
 // Hint: Return an object where the keys are 'car', 'truck', etc., and the value is the total number of times each data item appears.
+let countedData = data.reduce(function (allData, data){
+  if (data in allData) {
+    allData[data]++
+  } else {
+    allData[data] = 1
+  }
+  return allData
+},{})
 
-
+console.log(countedData)
 
 const devs = [
   { name: 'Wes', year: 1988 },
